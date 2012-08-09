@@ -1,0 +1,123 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Chapter 1. Hello</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="css/ch01.css" type="text/css" media="screen" charset="utf-8" />
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/processing.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/processingjslive.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<form id="search-form" action="/books/1230000000625/search" method="POST">
+	<input name='search[q]' type=text/>
+	<div style='display:none'>
+		sorted by: 
+		<select name='search[sort]' >
+			<option value='relevance'>Relevance</option>
+			<option value='authors'>Author(s)</option>
+			<option value='title'>Title</option>
+		</select>
+		returning
+		<select name='search[limit]' >
+			<option value='5'>5</option>
+			<option value='10'>10</option>
+			<option value='20'>20</option>
+		</select>
+		values at a time.
+	</div>
+	<input value='Search' type=submit text='Start Searching' />
+</form>
+	<header><div class="navheader">
+<table style="width: 100%; ">
+<tr><td style="text-align: center; " colspan="3">Chapter 1. Hello</td></tr>
+<tr>
+<td style="width: 20%; text-align: left; ">
+<a accesskey="p" href="index.xhtml">Prev</a> </td>
+<td style="width: 60%; text-align: center; "> </td>
+<td style="width: 20%; text-align: right; "> <a accesskey="n" href="ch02.xhtml">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div></header><section class="chapter" id="hello"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Hello</h1></div></div></div>
+<p id="processing_is_f">Processing is for writing software to make images, animations, and interactions. The idea is to write a single line of code, and have a circle show up on the screen. Add a few more lines of code, and the circle follows the mouse. Another line of code, and the circle changes color when the mouse is pressed. We call this <span class="emphasis"><em>sketching</em></span> with code. You write one line, then add another, then another, and so on. The result is a program created one piece at a time.</p>
+<p id="programming_cou">Programming courses typically focus on structure and theory first. Anything visual—an interface, an animation—is considered a dessert to be enjoyed only after finishing your vegetables, usually several weeks of studying algorithms and methods. Over the years, we’ve watched many friends try to take such courses and drop out after the first lecture or after a long, frustrating night before the first assignment deadline. What initial curiosity they had about making the computer work for them was lost because they couldn’t see a path from what they had to learn first to what they wanted to create.</p>
+<p id="processing_offe">Processing offers a way to learn programming through creating interactive graphics. There are many possible ways to teach coding, but students often find encouragement and motivation in immediate visual feedback. Processing’s capacity for providing that feedback has made it a popular way to approach programming, and its emphasis on images, sketching, and community is discussed in the next few pages.</p>
+<div class="sect1" id="sketching_and_prototyping">
+<div class="titlepage"><div><div><h2 class="title">Sketching and Prototyping</h2></div></div></div>
+<p id="sketching_is_a_">Sketching is a way of thinking; it’s playful and quick. The basic goal is to explore many ideas in a short amount of time. In our own work, we usually start by sketching on paper and then moving the results into code. Ideas for animation and interactions are usually sketched as storyboards with notations. After making some software sketches, the best ideas are selected and combined into prototypes (<a class="xref" href="ch01.xhtml#as_drawings_move_from_sketchbook_to_scre" title="Figure 1-1. As drawings move from sketchbook to screen, new possibilities emerge."></a>). It’s a cyclical process of making, testing, and improving that moves back and forth between paper and screen.</p>
+<div class="figure" id="as_drawings_move_from_sketchbook_to_scre">
+<div class="figure-contents"><div class="mediaobject"><img src="images/bruce.jpg" alt="As drawings move from sketchbook to screen, new possibilities emerge."></div></div>
+<div class="figure-title">Figure 1-1. As drawings move from sketchbook to screen, new possibilities emerge.</div>
+</div>
+</div>
+<div class="sect1" id="flexibility">
+<div class="titlepage"><div><div><h2 class="title">Flexibility</h2></div></div></div>
+<p id="like_a_software">Like a software utility belt, Processing consists of many tools that work together in different combinations. As a result, it can be used for quick hacks or for in-depth research. Because a Processing program can be as short as one line or as long as thousands, there’s room for growth and variation. More than 100 libraries extend Processing even further into domains including sound, computer vision, and digital fabrication (<a class="xref" href="ch01.xhtml#many_types_of_information_can_flow_in_an" title="Figure 1-2. Many types of information can flow in and out of Processing."></a>).</p>
+<div class="figure" id="many_types_of_information_can_flow_in_an">
+<div class="figure-contents"><div class="mediaobject"><img src="images/bruce.jpg" alt="Many types of information can flow in and out of Processing."></div></div>
+<div class="figure-title">Figure 1-2. Many types of information can flow in and out of Processing.</div>
+</div>
+</div>
+<div class="sect1" id="giants">
+<div class="titlepage"><div><div><h2 class="title">Giants</h2></div></div></div>
+<p id="people_have_bee">People have been making pictures with computers since the 1960s, and there’s much to be learned from this history (<a class="xref" href="ch01.xhtml#processing_was_inspired_by_great_ideas_a" title="Figure 1-3. Processing was inspired by great ideas and individuals over the last four decades."></a>). In life, we all stand on the shoulders of giants, and the titans for Processing include thinkers from design, computer graphics, art, architecture, statistics, and the spaces between. Have a look at Ivan Sutherland’s <span class="emphasis"><em>Sketchpad</em></span> (1963), Alan Kay’s <span class="emphasis"><em>Dynabook</em></span> (1968), and the many artists featured in Ruth Leavitt’s _Artist and Computer_<a href="#ftn.id448769" class="footnote"><sup class="footnote" id="id448769">[1]</sup></a> (Harmony Books, 1976). The ACM SIGGRAPH archives provide a fascinating glimpse into the history of graphics and software.</p>
+<div class="figure" id="processing_was_inspired_by_great_ideas_a">
+<div class="figure-contents"><div class="mediaobject"><img src="images/bruce.jpg" alt="Processing was inspired by great ideas and individuals over the last four decades."></div></div>
+<div class="figure-title">Figure 1-3. Processing was inspired by great ideas and individuals over the last four decades.</div>
+</div>
+</div>
+<div class="sect1" id="family_tree">
+<div class="titlepage"><div><div><h2 class="title">Family Tree</h2></div></div></div>
+<p id="like_human_lang">Like human languages, programming languages belong to families of related languages. Processing is a dialect of a programming language called Java; the language syntax is almost identical, but Processing adds custom features related to graphics and interaction (<a class="xref" href="ch01.xhtml#processing_has_a_large_family_of_related" title="Figure 1-4. Processing has a large family of related languages and programming environments."></a>). The graphic elements of Processing are related to PostScript (a foundation of PDF) and OpenGL (a 3D graphics specification). Because of these shared features, learning Processing is an entry-level step to programming in other languages and using different software tools.</p>
+<div class="figure" id="processing_has_a_large_family_of_related">
+<div class="figure-contents"><div class="mediaobject"><img src="images/bruce.jpg" alt="Processing has a large family of related languages and programming environments."></div></div>
+<div class="figure-title">Figure 1-4. Processing has a large family of related languages and programming environments.</div>
+</div>
+</div>
+<div class="sect1" id="join_in">
+<div class="titlepage"><div><div><h2 class="title">Join In</h2></div></div></div>
+<p id="thousands_of_pe">Thousands of people use Processing every day. Like them, you can download Processing without cost. You even have the option to modify the Processing code to suit your needs. Processing is a <span class="emphasis"><em>FLOSS</em></span> project (that is, <span class="emphasis"><em>free/libre/open source software</em></span>), and in the spirit of community, we encourage you to participate by sharing your projects and knowledge online at <a class="ulink" href="http://processing.org" target="_top">Processing.org</a> and at the many social networking sites that host Processing content (<a class="xref" href="ch01.xhtml#processing_is_fueled_by_thousands_of_peo" title="Figure 1-5. Processing is fueled by thousands of people contributing through the Internet. This is our rendition of how they all relate to one another."></a>). These sites are linked from the <a class="ulink" href="http://processing.org" target="_top">Processing.org</a> website.</p>
+<div class="figure" id="processing_is_fueled_by_thousands_of_peo">
+<div class="figure-contents"><div class="mediaobject"><img src="images/bruce.jpg" alt="Processing is fueled by thousands of people contributing through the Internet. This is our rendition of how they all relate to one another."></div></div>
+<div class="figure-title">Figure 1-5. Processing is fueled by thousands of people contributing through the Internet. This is our rendition of how they all relate to one another.</div>
+</div>
+</div>
+<div class="footnotes">
+<br><hr style="width: 100; align: left;">
+<div id="ftn.id448769" class="footnote"><p><a href="#id448769" class="simpara"><sup class="simpara">[1] </sup></a><a class="ulink" href="http://www.atariarchives.org/artist/" target="_top">http://www.atariarchives.org/artist/</a></p></div>
+</div></section><footer><div class="navfooter">
+<hr>
+<table style="width: 100%; ">
+<tr>
+<td style="width: 40%; text-align: left; ">
+<a accesskey="p" href="index.xhtml">Prev</a> </td>
+<td style="width: 20%; text-align: center; "> </td>
+<td style="width: 40%; text-align: right; "> <a accesskey="n" href="ch02.xhtml">Next</a>
+</td>
+</tr>
+<tr>
+<td style="width: 40%; text-align: left; vertical-align: top; "> </td>
+<td style="width: 20%; text-align: center; "><a accesskey="h" href="index.xhtml">Home</a></td>
+<td style="width: 40%; text-align: right; vertical-align: top; "> Chapter 2. Starting to Code</td>
+</tr>
+</table>
+</div></footer>
+	<form accept-charset="UTF-8" action="/books/1230000000625/comments" class="new_comment" id="new_comment" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="IH/DFHPs3CJ14JNmpyR5rLvOCy+2WpIpbFzcL3POBdE=" /></div>
+	<textarea cols="40" id="comment_body" name="comment[body]" rows="20">
+</textarea>
+	<input id="comment_file" name="comment[file]" type="hidden" /><!-- find_chapter() should go in the value. should be in params -->
+	<input name="commit" type="submit" value="Submit" />
+</form>
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			var app = new App({chapter:"ch01.xhtml"});
+		});
+	</script>
+</body>
+</html>
