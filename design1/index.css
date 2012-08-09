@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "heading";
+  src: url("Gotham-Book.ttf");
+}
+
+body {
+	font-family: Verdana, Arial, Helvetica, "body", Georgia;
+	font-size: 13px;
+	color: #191919;
+}
+
+#container {
+	position: relative;
+	margin: 0 auto;
+	width: 600px;
+	padding: 80px 80px 20px 80px;
+	background-color: #FFF;
+	border-right: 1px dashed #D8D8D8;
+	border-left: 1px dashed #D8D8D8;
+}
+
+h1 {
+	font-family: "heading", Georgia, sans-serif;
+	font-size: 36px;
+	margin-bottom: 20px;
+	letter-spacing: -1px;
+	padding-bottom: 15px;
+	border-bottom: 1px dashed #BFBFBF;
+	color: #333;
+} 
+
+h2 {
+	font-family: "heading", Georgia, sans-serif;
+	font-size: 24px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	letter-spacing: -1px;
+}
+
+h3 {
+	font-family: "heading", Georgia, sans-serif;
+	font-size: 18px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+p {
+	line-height: 20px;
+	margin-bottom: 20px;
+}
+
+a {
+	color: #1F3C99;
+}
+
+a#prev, a#next {
+	position: absolute;
+	top: 10px;
+	display: block;
+	background-color: #333;
+	padding: 7px 15px;
+	color: #FFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+a#prev {
+	left: -20px;
+}
+
+a#next {
+	right: -20px;
+}
+
+/* Basic Boxes
+------------------------------------------------ */
+
+.tip p:last-child,
+.note p:last-child {
+	margin-bottom: 0px;
+}
+
+.tip, .note {
+	padding: 15px 20px;
+	margin-bottom: 20px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	margin-left: -15px;
+	margin-right: -15px;
+	position: relative;
+	background-color: #f3f4f4;
+}
+
+.tip .title, .note .title {
+	margin-top: 0px;
+	font-size: 15px;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #666;
+}
+
+/* Tip Box
+------------------------------------------------ */
+
+.tip {
+	/* Add icons or something in the top left corner instead of color */
+/*	background-color: #f3f4f4;*/
+}
+
+/* Note Box
+------------------------------------------------ */
+
+.note {
+/*	background-color: #faf7da;*/
+}
