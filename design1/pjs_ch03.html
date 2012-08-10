@@ -1,0 +1,439 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Chapter 3. Draw</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="css/ch01.css" type="text/css" media="screen" charset="utf-8" />
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/processing.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/processingjslive.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<form id="search-form" action="/books/1230000000625/search" method="POST">
+	<input name='search[q]' type=text/>
+	<div style='display:none'>
+		sorted by: 
+		<select name='search[sort]' >
+			<option value='relevance'>Relevance</option>
+			<option value='authors'>Author(s)</option>
+			<option value='title'>Title</option>
+		</select>
+		returning
+		<select name='search[limit]' >
+			<option value='5'>5</option>
+			<option value='10'>10</option>
+			<option value='20'>20</option>
+		</select>
+		values at a time.
+	</div>
+	<input value='Search' type=submit text='Start Searching' />
+</form>
+	<header><div class="navheader">
+<table style="width: 100%; ">
+<tr><td style="text-align: center; " colspan="3">Chapter 3. Draw</td></tr>
+<tr>
+<td style="width: 20%; text-align: left; ">
+<a accesskey="p" href="ch02.xhtml">Prev</a> </td>
+<td style="width: 60%; text-align: center; "> </td>
+<td style="width: 20%; text-align: right; "> <a accesskey="n" href="ch04.xhtml">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div></header><section class="chapter" id="draw"><div class="titlepage"><div><div><h1 class="title">Chapter 3. Draw</h1></div></div></div>
+<p id="at_first_drawi">At first, drawing on a computer screen is like working on graph paper. It starts as a careful technical procedure, but as new concepts are introduced, drawing simple shapes with software expands into animation and interaction. Before we make this jump, we need to start at the beginning.</p>
+<p id="a_computer_scre">A computer screen is a grid of light elements called <span class="emphasis"><em>pixels</em></span>. Each pixel has a position within the grid defined by coordinates. In Processing, the x-coordinate is the distance from the left edge of the Display Window and the y-coordinate is the distance from the top edge. We write coordinates of a pixel like this: (x, y). So, if the screen is 200×200 pixels, the upper-left is (0, 0), the center is at (100, 100), and the lower-right is (199, 199). These numbers may seem confusing; why do we go from 0 to 199 instead of 1 to 200? The answer is that in code, we usually count from 0 because it’s easier for calculations that we’ll get into later.</p>
+<p id="the_display_win">The Display Window is created and images are drawn inside through code elements called <span class="emphasis"><em>functions</em></span>. Functions are the basic building blocks of a Processing program. The behavior of a function is defined by its <span class="emphasis"><em>parameters</em></span>. For example, almost every Processing program has a <span class="emphasis"><em>size()</em></span> function to set the width and height of the Display Window. (If your program doesn’t have a <span class="emphasis"><em>size()</em></span> function, the dimension is set to 100×100 pixels.)</p>
+<p id="example_3-1_colon_draw_a_window">===</p>
+<div class="sect2" id="example_3-1_colon_draw_a_window-id1">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_01" target="_top">Example 3-1: Draw a Window</a></h3></div></div></div>
+<p id="the_size_func">The <span class="emphasis"><em>size()</em></span> function has two parameters: the first sets the width of the window and the second sets the height. To draw a window that is 800 pixels wide and 600 high, write:</p>
+<pre class="screen" id="size__id1">size(800, 600);</pre>
+<p id="run_this_line_o">Run this line of code to see the result. Put in different values to see what’s possible. Try very small numbers and numbers larger than your screen.</p>
+</div>
+<div class="sect2" id="example_3-2_colon_draw_a_point">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_02" target="_top">Example 3-2: Draw a Point</a></h3></div></div></div>
+<p id="to_set_the_colo">To set the color of a single pixel within the Display Window, we use the <span class="emphasis"><em>point()</em></span> function. It has two parameters that define a position: the x-coordinate followed by the y-coordinate. To draw a little window and a point at the center of the screen, coordinate (240, 60), type:</p>
+<div class="informalfigure" id="informalfigure_id10"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_02.png"></div></div>
+<pre class="screen" id="size__id2">size(480, 120);
+point(240, 60);</pre>
+<p id="try_to_write_a_">Try to write a program that puts a point at each corner of the Display Window and one in the center. Try placing points side by side to make horizontal, vertical, and diagonal lines.</p>
+</div>
+<div class="sect1" id="basic_shapes">
+<div class="titlepage"><div><div><h2 class="title">Basic Shapes</h2></div></div></div>
+<p id="processing_incl">Processing includes a group of functions to draw basic shapes (see <a class="xref" href="ch03.xhtml#coordinates_and_shapes" title="Figure 3-1. Coordinates and shapes.">Figure 3-1</a>). Simple shapes like lines can be combined to create more complex forms like a leaf or a face.</p>
+<p id="to_draw_a_singl">To draw a single line, we need four parameters: two for the starting location and two for the end.</p>
+<div class="figure" id="coordinates_and_shapes">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Fig_03_01.png" alt="Coordinates and shapes."></div></div>
+<div class="figure-title">Figure 3-1. Coordinates and shapes.</div>
+</div>
+<div class="sect2" id="example_3-3_colon_draw_a_line">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_03" target="_top">Example 3-3: Draw a Line</a></h3></div></div></div>
+<p id="to_draw_a_line_">To draw a line between coordinate (20, 50) and (420,110), try:</p>
+<div class="informalfigure" id="informalfigure_id11"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_03.png"></div></div>
+<pre class="screen" id="size__id3">size(480, 120);
+line(20, 50, 420, 110);</pre>
+</div>
+<div class="sect2" id="example_3-4_colon_draw_basic_shapes">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_04" target="_top">Example 3-4: Draw Basic Shapes</a></h3></div></div></div>
+<p id="following_this_">Following this pattern, a triangle needs six parameters and a quadrilateral needs eight (one pair for each point):</p>
+<div class="informalfigure" id="informalfigure_id12"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_04.png"></div></div>
+<pre class="screen" id="size__id4">size(480, 120);
+quad(158, 55, 199, 14, 392, 66, 351, 107);
+triangle(347, 54, 392, 9, 392, 66);
+triangle(158, 55, 290, 91, 290, 112);</pre>
+</div>
+<div class="sect2" id="example_3-5_colon_draw_a_rectangle">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_05" target="_top">Example 3-5: Draw a Rectangle</a></h3></div></div></div>
+<p id="rectangles_and_">Rectangles and ellipses are both defined with four parameters: the first and second are for the x- and y-coordinates of the anchor point, the third for the width, and the fourth for the height. To make a rectangle at coordinate (180, 60) with a width of 220 pixels and height of 40, use the <span class="emphasis"><em>rect()</em></span> function like this:</p>
+<div class="informalfigure" id="informalfigure_id13"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_05.png"></div></div>
+<pre class="screen" id="size__id5">size(480, 120);
+rect(180, 60, 220, 40);</pre>
+</div>
+<div class="sect2" id="example_3-6_colon_draw_an_ellipse">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_06" target="_top">Example 3-6: Draw an Ellipse</a></h3></div></div></div>
+<p id="the_x_and_yco">The x- and y-coordinates for a rectangle are the upper-left corner, but for an ellipse they are the center of the shape. In this example, notice that the y-coordinate for the first ellipse is outside the window. Objects can be drawn partially (or entirely) out of the window without an error:</p>
+<div class="informalfigure" id="informalfigure_id14"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_06.png"></div></div>
+<pre class="screen" id="size__id6">size(480, 120);
+ellipse(278, −100, 400, 400);
+ellipse(120, 100, 110, 110);
+ellipse(412, 60, 18, 18);</pre>
+<p id="processing_does">Processing doesn’t have separate functions to make squares and circles. To make these shapes, use the same value for the <span class="emphasis"><em>width</em></span> and the <span class="emphasis"><em>height</em></span> parameters to <span class="emphasis"><em>ellipse()</em></span> and <span class="emphasis"><em>rect()</em></span>.</p>
+</div>
+<div class="sect2" id="example_3-7_colon_draw_part_of_an_ellips">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_07" target="_top">Example 3-7: Draw Part of an Ellipse</a></h3></div></div></div>
+<p id="the_arc_funct">The <span class="emphasis"><em>arc()</em></span> function draws a piece of an ellipse:</p>
+<div class="informalfigure" id="informalfigure_id15"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_07.png"></div></div>
+<pre class="screen" id="size__id7">size(480, 120);
+arc(90, 60, 80, 80, 0, HALF_PI);
+arc(190, 60, 80, 80, 0, PI+HALF_PI);
+arc(290, 60, 80, 80, PI, TWO_PI+HALF_PI);
+arc(390, 60, 80, 80, QUARTER_PI, PI+QUARTER_PI);</pre>
+<p id="the_first_and_s">The first and second parameters set the location, the third and fourth set the width and height. The fifth parameter sets the angle to start the arc, and the sixth sets the angle to stop. The angles are set in radians, rather than degrees. Radians are angle measurements based on the value of pi (3.14159). <a class="xref" href="ch03.xhtml#radian_and_degrees_measurements" title="Figure 3-2. Radian and degrees measurements.">Figure 3-2</a> shows how the two relate. As featured in this example, four radian values are used so frequently that special names for them were added as a part of Processing. The values <span class="emphasis"><em>PI</em></span>, <span class="emphasis"><em>QUARTER_PI</em></span>, <span class="emphasis"><em>HALF_PI</em></span>, and <span class="emphasis"><em>TWO_PI</em></span> can be used to replace the radian values for 180°, 45°, 90°, and 360°.</p>
+<div class="figure" id="radian_and_degrees_measurements">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Fig_03_02.png" alt="Radian and degrees measurements."></div></div>
+<div class="figure-title">Figure 3-2. Radian and degrees measurements.</div>
+</div>
+</div>
+<div class="sect2" id="example_3-8_colon_draw_with_degrees">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_08" target="_top">Example 3-8: Draw with Degrees</a></h3></div></div></div>
+<p id="if_you_prefer_t">If you prefer to use degree measurements, you can convert to radians with the <span class="emphasis"><em>radians()</em></span> function. This function takes an angle in degrees and changes it to the corresponding radian value. The following example is the same as <a class="xref" href="ch03.xhtml#example_3-7_colon_draw_part_of_an_ellips" title="Example 3-7: Draw Part of an Ellipse">“Example 3-7: Draw Part of an Ellipse”</a>, but it uses the <span class="emphasis"><em>radians()</em></span> function to define the start and stop values in degrees:</p>
+<pre class="screen" id="size__id8">size(480, 120);
+arc(90, 60, 80, 80, 0, radians(90));
+arc(190, 60, 80, 80, 0, radians(270));
+arc(290, 60, 80, 80, radians(180), radians(450));
+arc(390, 60, 80, 80, radians(45), radians(225));</pre>
+</div>
+</div>
+<div class="sect1" id="drawing_order">
+<div class="titlepage"><div><div><h2 class="title">Drawing Order</h2></div></div></div>
+<p id="when_a_program_">When a program runs, the computer starts at the top and reads each line of code until it reaches the last line and then stops. If you want a shape to be drawn on top of all other shapes, it needs to follow the others in the code.</p>
+<div class="sect2" id="example_3-9_colon_control_your_drawing_o">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_09" target="_top">Example 3-9: Control Your Drawing Order</a></h3></div></div></div>
+<div class="informalfigure" id="informalfigure_id16"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_09.png"></div></div>
+<pre class="screen" id="size__id9">size(480, 120);
+ellipse(140, 0, 190, 190);
+// The rectangle draws on top of the ellipse
+// because it comes after in the code
+rect(160, 30, 260, 20);</pre>
+</div>
+<div class="sect2" id="example_3-10_colon_put_it_in_reverse">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_10" target="_top">Example 3-10: Put It in Reverse</a></h3></div></div></div>
+<p id="modify_by_rever">Modify <a class="xref" href="ch03.xhtml#example_3-9_colon_control_your_drawing_o" title="Example 3-9: Control Your Drawing Order">“Example 3-9: Control Your Drawing Order”</a> by reversing the order of <span class="emphasis"><em>rect()</em></span> and <span class="emphasis"><em>ellipse()</em></span> to see the circle on top of the rectangle:</p>
+<div class="informalfigure" id="informalfigure_id17"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_10.png"></div></div>
+<pre class="screen" id="size__id10">size(480, 120);
+rect(160, 30, 260, 20);
+// The ellipse draws on top of the rectangle
+// because it comes after in the code
+ellipse(140, 0, 190, 190);</pre>
+<p id="you_can_think_o">You can think of it like painting with a brush or making a collage. The last element that you add is what’s visible on top.</p>
+</div>
+</div>
+<div class="sect1" id="shape_properties">
+<div class="titlepage"><div><div><h2 class="title">Shape Properties</h2></div></div></div>
+<p id="the_most_basic_">The most basic and useful shape properties are stroke weight and antialiasing, also called <span class="emphasis"><em>smoothing</em></span>.</p>
+<div class="sect2" id="example_3-11_colon_draw_smooth_lines">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_11" target="_top">Example 3-11: Draw Smooth Lines</a></h3></div></div></div>
+<p id="the_smooth_fu">The <span class="emphasis"><em>smooth()</em></span> function smooths the edges of lines drawn to the screen by blending the edges with the nearby pixel values. Conversely, if smoothing is already turned on, the <span class="emphasis"><em>noSmooth()</em></span> function will turn it off:</p>
+<div class="informalfigure" id="informalfigure_id18"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_11.png"></div></div>
+<pre class="screen" id="size__id11">size(480, 120);
+smooth();  // Turns on smoothing
+ellipse(140, 60, 90, 90);
+noSmooth();  // Turns off smoothing
+ellipse(240, 60, 90, 90);</pre>
+<div class="note"><p id="some_implementa">Some implementations of Processing (such as the version for JavaScript) will always smooth shapes; others might not support smoothing at all. In some situations, it’s not possible to enable and disable smoothing within the same trip through <span class="emphasis"><em>draw()</em></span>. See the <span class="emphasis"><em>smooth()</em></span> reference for more details.</p></div>
+</div>
+<div class="sect2" id="example_3-12_colon_set_stroke_weight">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_12" target="_top">Example 3-12: Set Stroke Weight</a></h3></div></div></div>
+<p id="the_default_str">The default stroke weight is a single pixel, but this can be changed with the <span class="emphasis"><em>strokeWeight()</em></span> function. The single parameter to <span class="emphasis"><em>strokeWeight()</em></span> sets the width of drawn lines:</p>
+<div class="informalfigure" id="informalfigure_id19"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_12.png"></div></div>
+<pre class="screen" id="size__id12">size(480, 120);
+smooth();
+ellipse(75, 60, 90, 90);
+strokeWeight(8);  // Stroke weight to 8 pixels
+ellipse(175, 60, 90, 90);
+ellipse(279, 60, 90, 90);
+strokeWeight(20);  // Stroke weight to 20 pixels
+ellipse(389, 60, 90, 90);</pre>
+</div>
+<div class="sect2" id="example_3-13_colon_set_stroke_attributes">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_13" target="_top">Example 3-13: Set Stroke Attributes</a></h3></div></div></div>
+<p id="the_strokejoin">The <span class="emphasis"><em>strokeJoin()</em></span> function changes the way lines are joined (how the corners look), and the <span class="emphasis"><em>strokeCap()</em></span> function changes how lines are drawn at their beginning and end:</p>
+<div class="informalfigure" id="informalfigure_id20"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_13.png"></div></div>
+<pre class="screen" id="size__id13">size(480, 120);
+smooth();
+strokeWeight(12);
+strokeJoin(ROUND);       // Round the stroke corners
+rect(40, 25, 70, 70);
+strokeJoin(BEVEL);       // Bevel the stroke corners
+rect(140, 25, 70, 70);
+strokeCap(SQUARE);       // Square the line endings
+line(270, 25, 340, 95);
+strokeCap(ROUND);        // Round the line endings
+line(350, 25, 420, 95);</pre>
+<p id="the_placement_o">The placement of shapes like <span class="emphasis"><em>rect()</em></span> and <span class="emphasis"><em>ellipse()</em></span> is controlled with the <span class="emphasis"><em>rectMode()</em></span> and <span class="emphasis"><em>ellipseMode()</em></span> functions. Check the reference (Help→Reference) to see examples of how to place rectangles from their center (rather than their upper-left corner), or to draw ellipses from their upper-left corner like rectangles.</p>
+<p id="when_any_of_the">When any of these attributes are set, all shapes drawn afterward are affected. For instance, in <a class="xref" href="ch03.xhtml#example_3-12_colon_set_stroke_weight" title="Example 3-12: Set Stroke Weight">“Example 3-12: Set Stroke Weight”</a>, notice how the second and third circles both have the same stroke weight, even though the weight is set only once before both are drawn.</p>
+</div>
+</div>
+<div class="sect1" id="color">
+<div class="titlepage"><div><div><h2 class="title">Color</h2></div></div></div>
+<p id="all_the_shapes_">All the shapes so far have been filled white with black outlines, and the background of the Display Window has been light gray. To change them, use the <span class="emphasis"><em>background()</em></span>, <span class="emphasis"><em>fill()</em></span>, and <span class="emphasis"><em>stroke()</em></span> functions. The values of the parameters are in the range of 0 to 255, where 255 is white, 128 is medium gray, and 0 is black. <a class="xref" href="ch03.xhtml#gray_values_from_0_to_255" title="Figure 3-3. Gray values from 0 to 255.">Figure 3-3</a> shows how the values from 0 to 255 map to different gray levels.</p>
+<div class="figure" id="gray_values_from_0_to_255">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Fig_03_03.png" alt="Gray values from 0 to 255."></div></div>
+<div class="figure-title">Figure 3-3. Gray values from 0 to 255.</div>
+</div>
+<div class="sect2" id="example_3-14_colon_paint_with_grays">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_14" target="_top">Example 3-14: Paint with Grays</a></h3></div></div></div>
+<p id="this_example_sh_id1">This example shows three different gray values on a black background:</p>
+<div class="informalfigure" id="informalfigure_id21"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_14.png"></div></div>
+<pre class="screen" id="size__id14">size(480, 120);
+smooth();
+background(0);               // Black
+fill(204);                   // Light gray
+ellipse(132, 82, 200, 200);  // Light gray circle
+fill(153);                   // Medium gray
+ellipse(228, −16, 200, 200); // Medium gray circle
+fill(102);                   // Dark gray
+ellipse(268, 118, 200, 200); // Dark gray circle</pre>
+</div>
+<div class="sect2" id="example_3-15_colon_control_fill_and_stro">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_15" target="_top">Example 3-15: Control Fill and Stroke</a></h3></div></div></div>
+<p id="you_can_disable">You can disable the stroke so that there’s no outline with <span class="emphasis"><em>noStroke()</em></span> and you can disable the fill of a shape with <span class="emphasis"><em>noFill()</em></span>:</p>
+<div class="informalfigure" id="informalfigure_id22"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_15.png"></div></div>
+<pre class="screen" id="size__id15">size(480, 120);
+smooth();
+fill(153);                    // Medium gray
+ellipse(132, 82, 200, 200);   // Gray circle
+noFill();                     // Turn off fill
+ellipse(228, −16, 200, 200);  // Outline circle
+noStroke();                   // Turn off stroke
+ellipse(268, 118, 200, 200);  // Doesn't draw!</pre>
+<p id="be_careful_not_">Be careful not to disable the fill and stroke at the same time, as we’ve done in the previous example, because nothing will draw to the screen.</p>
+</div>
+<div class="sect2" id="example_3-16_colon_draw_with_color">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_16" target="_top">Example 3-16: Draw with Color</a></h3></div></div></div>
+<p id="to_move_beyond_">To move beyond grayscale values, you use three parameters to specify the red, green, and blue components of a color. Because this book is printed in black and white, you’ll see only gray value here. Run the code in Processing to reveal the colors:</p>
+<div class="informalfigure" id="informalfigure_id23"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_16.png"></div></div>
+<pre class="screen" id="size__id16">size(480, 120);
+noStroke();
+smooth();
+background(0, 26, 51);        // Dark blue color
+fill(255, 0, 0);              // Red color
+ellipse(132, 82, 200, 200);   // Red circle
+fill(0, 255, 0);              // Green color
+ellipse(228, −16, 200, 200);  // Green circle
+fill(0, 0, 255);              // Blue color
+ellipse(268, 118, 200, 200);  // Blue circle</pre>
+<p id="this_is_referre">This is referred to as RGB color, which comes from how computers define colors on the screen. The three numbers stand for the values of red, green, and blue, and they range from 0 to 255 the way that the gray values do. Using RGB color isn’t very intuitive, so to choose colors, use Tools→Color Selector, which shows a color palette similar to those found in other software (see <a class="xref" href="ch03.xhtml#processing_color_selector" title="Figure 3-4. Processing Color Selector.">Figure 3-4</a>). Select a color, and then use the R, G, and B values as the parameters for your <span class="emphasis"><em>background()</em></span>, <span class="emphasis"><em>fill()</em></span>, or <span class="emphasis"><em>stroke()</em></span> function.</p>
+<div class="figure" id="processing_color_selector">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Fig_03_04.png" alt="Processing Color Selector."></div></div>
+<div class="figure-title">Figure 3-4. Processing Color Selector.</div>
+</div>
+</div>
+<div class="sect2" id="example_3-17_colon_set_transparency">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_17" target="_top">Example 3-17: Set Transparency</a></h3></div></div></div>
+<p id="by_adding_an_op">By adding an optional fourth parameter to <span class="emphasis"><em>fill()</em></span> or <span class="emphasis"><em>stroke()</em></span>, you can control the transparency. This fourth parameter is known as the <span class="emphasis"><em>alpha</em></span> value, and also uses the range 0 to 255 to set the amount of transparency. The value 0 defines the color as entirely transparent (it won’t display), the value 255 is entirely opaque, and the values between these extremes cause the colors to mix on screen:</p>
+<div class="informalfigure" id="informalfigure_id24"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_17.png"></div></div>
+<pre class="screen" id="size__id17">size(480, 120);
+noStroke();
+smooth();
+background(204, 226, 225);    // Light blue color
+fill(255, 0, 0, 160);         // Red color
+ellipse(132, 82, 200, 200);   // Red circle
+fill(0, 255, 0, 160);         // Green color
+ellipse(228, −16, 200, 200);  // Green circle
+fill(0, 0, 255, 160);         // Blue color
+ellipse(268, 118, 200, 200);  // Blue circle</pre>
+</div>
+</div>
+<div class="sect1" id="custom_shapes">
+<div class="titlepage"><div><div><h2 class="title">Custom Shapes</h2></div></div></div>
+<p id="youre_not_limi">You’re not limited to using these basic geometric shapes—you can also define new shapes by connecting a series of points.</p>
+<div class="sect2" id="example_3-18_colon_draw_an_arrow">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_18" target="_top">Example 3-18: Draw an Arrow</a></h3></div></div></div>
+<p id="the_beginshape">The <span class="emphasis"><em>beginShape()</em></span> function signals the start of a new shape. The <span class="emphasis"><em>vertex()</em></span> function is used to define each pair of x- and y-coordinates for the shape. Finally, <span class="emphasis"><em>endShape()</em></span> is called to signal that the shape is finished.</p>
+<div class="informalfigure" id="informalfigure_id25"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_18.png"></div></div>
+<pre class="screen" id="size__id18">size(480, 120);
+beginShape();
+vertex(180, 82);
+vertex(207, 36);
+vertex(214, 63);
+vertex(407, 11);
+vertex(412, 30);
+vertex(219, 82);
+vertex(226, 109);
+endShape();</pre>
+</div>
+<div class="sect2" id="example_3-19_colon_close_the_gap">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_19" target="_top">Example 3-19: Close the Gap</a></h3></div></div></div>
+<p id="when_you_run__">When you run <a class="xref" href="ch03.xhtml#example_3-18_colon_draw_an_arrow" title="Example 3-18: Draw an Arrow">“Example 3-18: Draw an Arrow”</a>, you’ll see the first and last point are not connected. To do this, add the word <span class="emphasis"><em>CLOSE</em></span> as a parameter to <span class="emphasis"><em>endShape()</em></span>, like this:</p>
+<div class="informalfigure" id="informalfigure_id26"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_19.png"></div></div>
+<pre class="screen" id="size__id19">size(480, 120);
+beginShape();
+vertex(180, 82);
+vertex(207, 36);
+vertex(214, 63);
+vertex(407, 11);
+vertex(412, 30);
+vertex(219, 82);
+vertex(226, 109);
+endShape(CLOSE);</pre>
+</div>
+<div class="sect2" id="example_3-20_colon_create_some_creatures">
+<div class="titlepage"><div><div><h3 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Ex_03_20" target="_top">Example 3-20: Create Some Creatures</a></h3></div></div></div>
+<p id="the_power_of_de">The power of defining shapes with <span class="emphasis"><em>vertex()</em></span> is the ability to make shapes with complex outlines. Processing can draw thousands and thousands of lines at a time to fill the screen with fantastic shapes that spring from your imagination. A modest but more complex example follows:</p>
+<div class="informalfigure" id="informalfigure_id27"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/Ex_03_20.png"></div></div>
+<pre class="screen" id="size__id20">size(480, 120);
+smooth();
+
+// Left creature
+beginShape();
+vertex(50, 120);
+vertex(100, 90);
+vertex(110, 60);
+vertex(80, 20);
+vertex(210, 60);
+vertex(160, 80);
+vertex(200, 90);
+vertex(140, 100);
+vertex(130, 120);
+endShape();
+fill(0);
+ellipse(155, 60, 8, 8);
+
+// Right creature
+fill(255);
+beginShape();
+vertex(370, 120);
+vertex(360, 90);
+vertex(290, 80);
+vertex(340, 70);
+vertex(280, 50);
+vertex(420, 10);
+vertex(390, 50);
+vertex(410, 90);
+vertex(460, 120);
+endShape();
+fill(0);
+ellipse(345, 50, 10, 10);</pre>
+</div>
+</div>
+<div class="sect1" id="comments">
+<div class="titlepage"><div><div><h2 class="title">Comments</h2></div></div></div>
+<p id="the_examples_in">The examples in this chapter use double slashes (//) at the end of a line to add comments to the code. Comments are parts of the program that are ignored when the program is run. They are useful for making notes for yourself that explain what’s happening in the code. If others are reading your code, comments are especially important to help them understand your thought process.</p>
+<p id="comments_are_al">Comments are also especially useful for a number of different options, such as when trying to choose the right color. So, for instance, I might be trying to find just the right red for an ellipse:</p>
+<pre class="screen" id="size__id21">size(200, 200);
+fill(165, 57, 57);
+ellipse(100, 100, 80, 80);</pre>
+<p id="now_suppose_i_w">Now suppose I want to try a different red, but don’t want to lose the old one. I can copy and paste the line, make a change, and then "comment out" the old one:</p>
+<pre class="screen" id="size__id22">size(200, 200);
+//fill(165, 57, 57);
+fill(144, 39, 39);
+ellipse(100, 100, 80, 80);</pre>
+<p id="placing__at_t">Placing <code class="literal">//</code> at the beginning of the line temporarily disables it. Or I can remove the <code class="literal">//</code> and place it in front of the other line if I want to try it again:</p>
+<pre class="screen" id="size__id23">size(200, 200);
+fill(165, 57, 57);
+//fill(144, 39, 39);
+ellipse(100, 100, 80, 80);</pre>
+<div class="note"><p id="as_a_shortcut_">As a shortcut, you can also use Ctrl-/ (Cmd-/ on the Mac) to add or remove comments from the current line or a selected block of text. You can also comment out many lines at a time with the alternative comment notation introduced in <a class="xref" href="apa.xhtml" title="Appendix A. Coding Tips">Appendix A</a>.</p></div>
+<p id="as_you_work_wit">As you work with Processing sketches, you’ll find yourself creating dozens of iterations of ideas; using comments to make notes or to disable code can help you keep track of multiple options.</p>
+</div>
+<div class="sect1" id="robot_1_colon_draw">
+<div class="titlepage"><div><div><h2 class="title"><a class="ulink" href="http://examples.oreilly.com/0636920000570/interactive_examples/index.php?example=Robot1_Draw" target="_top">Robot 1: Draw</a></h2></div></div></div>
+<div class="informalfigure" id="informalfigure_id28"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000625/images/NRobot_Draw.png"></div></div>
+<p id="this_is_p_the">This is P5, the Processing Robot. There are eight different programs to draw and animate him in the book—each one explores a different programming idea. P5’s design was inspired by Sputnik I (1957), Shakey from the Stanford Research Institute (1966–1972), the fighter drone in David Lynch’s <span class="emphasis"><em>Dune</em></span> (1984), and HAL 9000 from <span class="emphasis"><em>2001: A Space Odyssey</em></span> (1968), among other robot favorites.</p>
+<p id="the_first_robot">The first robot program uses the drawing functions introduced in the previous chapter. The parameters to the <span class="emphasis"><em>fill()</em></span> and <span class="emphasis"><em>stroke()</em></span> functions set the gray values. The <span class="emphasis"><em>line()</em></span>, <span class="emphasis"><em>ellipse()</em></span>, and <span class="emphasis"><em>rect()</em></span> functions define the shapes that create the robot’s neck, antennae, body, and head. To get more familiar with the functions, run the program and change the values to redesign the robot:</p>
+<pre class="screen" id="size__id24">size(720, 480);
+smooth();
+strokeWeight(2);
+background(204);
+ellipseMode(RADIUS);
+
+// Neck
+stroke(102);                // Set stroke to gray
+line(266, 257, 266, 162);   // Left
+line(276, 257, 276, 162);   // Middle
+line(286, 257, 286, 162);   // Right
+
+// Antennae
+line(276, 155, 246, 112);   // Small
+line(276, 155, 306, 56);    // Tall
+line(276, 155, 342, 170);   // Medium
+
+// Body
+noStroke();                 // Disable stroke
+fill(102);                  // Set fill to gray
+ellipse(264, 377, 33, 33);  // Antigravity orb
+fill(0);                    // Set fill to black
+rect(219, 257, 90, 120);    // Main body
+fill(102);                  // Set fill to gray
+rect(219, 274, 90, 6);      // Gray stripe
+
+// Head
+fill(0);                    // Set fill to black
+ellipse(276, 155, 45, 45);  // Head
+fill(255);                  // Set fill to white
+ellipse(288, 150, 14, 14);  // Large eye
+fill(0);                    // Set fill to black
+ellipse(288, 150, 3, 3);    // Pupil
+fill(153);                  // Set fill to light gray
+ellipse(263, 148, 5, 5);    // Small eye 1
+ellipse(296, 130, 4, 4);    // Small eye 2
+ellipse(305, 162, 3, 3);    // Small eye 3</pre>
+</div></section><footer><div class="navfooter">
+<hr>
+<table style="width: 100%; ">
+<tr>
+<td style="width: 40%; text-align: left; ">
+<a accesskey="p" href="ch02.xhtml">Prev</a> </td>
+<td style="width: 20%; text-align: center; "> </td>
+<td style="width: 40%; text-align: right; "> <a accesskey="n" href="ch04.xhtml">Next</a>
+</td>
+</tr>
+<tr>
+<td style="width: 40%; text-align: left; vertical-align: top; ">Chapter 2. Starting to Code </td>
+<td style="width: 20%; text-align: center; "><a accesskey="h" href="index.xhtml">Home</a></td>
+<td style="width: 40%; text-align: right; vertical-align: top; "> Chapter 4. Variables</td>
+</tr>
+</table>
+</div></footer>
+	<form accept-charset="UTF-8" action="/books/1230000000625/comments" class="new_comment" id="new_comment" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="PVRzOPBua4pn10zENkq2QNHVFl4q9yoQBuOksF+oge8=" /></div>
+	<textarea cols="40" id="comment_body" name="comment[body]" rows="20">
+</textarea>
+	<input id="comment_file" name="comment[file]" type="hidden" /><!-- find_chapter() should go in the value. should be in params -->
+	<input name="commit" type="submit" value="Submit" />
+</form>
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			var app = new App({chapter:"ch03.xhtml"});
+		});
+	</script>
+</body>
+</html>
+
+
+

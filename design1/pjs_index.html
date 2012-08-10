@@ -1,0 +1,451 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Getting Started with Processing</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="css/ch01.css" type="text/css" media="screen" charset="utf-8" />
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/processing.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/processingjslive.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<form id="search-form" action="/books/1230000000625/search" method="POST">
+	<input name='search[q]' type=text/>
+	<div style='display:none'>
+		sorted by: 
+		<select name='search[sort]' >
+			<option value='relevance'>Relevance</option>
+			<option value='authors'>Author(s)</option>
+			<option value='title'>Title</option>
+		</select>
+		returning
+		<select name='search[limit]' >
+			<option value='5'>5</option>
+			<option value='10'>10</option>
+			<option value='20'>20</option>
+		</select>
+		values at a time.
+	</div>
+	<input value='Search' type=submit text='Start Searching' />
+</form>
+	<header><div class="navheader">
+<table style="width: 100%; ">
+<tr><td style="text-align: center; " colspan="3">Getting Started with Processing</td></tr>
+<tr>
+<td style="width: 20%; text-align: left; "> </td>
+<td style="width: 60%; text-align: center; "> </td>
+<td style="width: 20%; text-align: right; "> <a accesskey="n" href="pr01.xhtml">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div></header><div xml:lang="en" class="book" id="getting_started_with_processing">
+<div class="titlepage">
+<div>
+<div><h1 class="title">Getting Started with Processing</h1></div>
+<div><div class="author"><h3 class="author">
+<span class="firstname">Casey</span> <span class="surname">Reas</span>
+</h3></div></div>
+<div><div class="author"><h3 class="author">
+<span class="firstname">Ben</span> <span class="surname">Fry</span>
+</h3></div></div>
+<div><div class="othercredit"><h3 class="othercredit">
+<span class="firstname">Rachel</span> <span class="surname">Monaghan</span>
+</h3></div></div>
+<div><div class="othercredit"><h3 class="othercredit">
+<span class="firstname">Nancy</span> <span class="surname">Kotary</span>
+</h3></div></div>
+<div><div class="othercredit"><h3 class="othercredit">
+<span class="firstname">Ron</span> <span class="surname">Strauss</span>
+</h3></div></div>
+<div><div class="othercredit"><h3 class="othercredit">
+<span class="firstname">Casey</span> <span class="surname">Reas</span>
+</h3></div></div>
+<div><div class="othercredit"><h3 class="othercredit">
+<span class="firstname">Karen</span> <span class="surname">Montgomery</span>
+</h3></div></div>
+<div><p class="copyright">Copyright © 2010 Casey Reas and Ben Fry</p></div>
+<div><div class="legalnotice" id="id468202"><p id="oreilly_books_">O'Reilly books may be purchased for educational, business, or
+      sales promotional use. Online editions are also available for most
+      titles (<a class="ulink" href="http://my.safaribooksonline.com" target="_top">http://my.safaribooksonline.com</a>). For more
+      information, contact our corporate/institutional sales department:
+      800-998-9938 or <code class="email">&lt;<a class="email" href="mailto:corporate@oreilly.com">corporate@oreilly.com</a>&gt;</code>.</p></div></div>
+<div><div class="legalnotice" id="id460441"><p id="printed_in_the_">Printed in the United States of America.</p></div></div>
+<div><div class="legalnotice" id="id460449">
+<p id="the_oreilly_lo">The O'Reilly logo is a registered trademark of O'Reilly Media,
+      Inc. The Make: Projects series designations and related trade dress are
+      trademarks of O'Reilly Media, Inc. The trademarks of third parties used
+      in this work are the property of their respective owners.</p>
+<p id="many_of_the_des">Many of the designations used by manufacturers and sellers to
+      distinguish their products are claimed as trademarks. Where those
+      designations appear in this book, and O'Reilly Media, Inc. was aware of
+      a trademark claim, the designations have been printed in caps or initial
+      caps.</p>
+</div></div>
+<div><div class="legalnotice" id="id460467"><p id="while_every_pre">While every precaution has been taken in the preparation of this
+      book, the publisher and authors assume no responsibility for errors or
+      omissions, or for damages resulting from the use of the information
+      contained herein.</p></div></div>
+</div>
+<hr>
+</div>
+<div class="toc">
+<div class="toc-title">Table of Contents</div>
+<ul>
+<li><span class="preface"><a href="pr01.xhtml">Advance Praise for Getting Started with</a></span></li>
+<li>
+<span class="preface"><a href="pr02.xhtml">Preface</a></span><ul>
+<li><span class="sect1"><a href="pr02.xhtml#how_this_book_is_organized">How This Book Is Organized</a></span></li>
+<li><span class="sect1"><a href="pr02.xhtml#who_this_book_is_for">Who This Book Is For</a></span></li>
+<li><span class="sect1"><a href="pr02.xhtml#conventions_used_in_this_book">Conventions Used in This Book</a></span></li>
+<li><span class="sect1"><a href="pr02.xhtml#using_code_examples">Using Code Examples</a></span></li>
+<li><span class="sect1"><a href="pr02.xhtml#how_to_contact_us">How to Contact Us</a></span></li>
+<li><span class="sect1"><a href="pr02.xhtml#safarir_books_online">Safari® Books Online</a></span></li>
+<li><span class="sect1"><a href="pr02.xhtml#acknowledgments">Acknowledgments</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch01.xhtml">1. Hello</a></span><ul>
+<li><span class="sect1"><a href="ch01.xhtml#sketching_and_prototyping">Sketching and Prototyping</a></span></li>
+<li><span class="sect1"><a href="ch01.xhtml#flexibility">Flexibility</a></span></li>
+<li><span class="sect1"><a href="ch01.xhtml#giants">Giants</a></span></li>
+<li><span class="sect1"><a href="ch01.xhtml#family_tree">Family Tree</a></span></li>
+<li><span class="sect1"><a href="ch01.xhtml#join_in">Join In</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch02.xhtml">2. Starting to Code</a></span><ul>
+<li>
+<span class="sect1"><a href="ch02.xhtml#your_first_program">Your First Program</a></span><ul>
+<li><span class="sect2"><a href="ch02.xhtml#example_2-1_colon_draw_an_ellipse">Example 2-1: Draw an Ellipse</a></span></li>
+<li><span class="sect2"><a href="ch02.xhtml#example_2-2_colon_make_circles">Example 2-2: Make Circles</a></span></li>
+</ul>
+</li>
+<li><span class="sect1"><a href="ch02.xhtml#show">Show</a></span></li>
+<li><span class="sect1"><a href="ch02.xhtml#save">Save</a></span></li>
+<li><span class="sect1"><a href="ch02.xhtml#share">Share</a></span></li>
+<li><span class="sect1"><a href="ch02.xhtml#examples_and_reference">Examples and Reference</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch03.xhtml">3. Draw</a></span><ul>
+<li>
+<span class="sect1"><a href="ch03.xhtml#basic_shapes">Basic Shapes</a></span><ul>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-3_colon_draw_a_line">Example 3-3: Draw a Line</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-4_colon_draw_basic_shapes">Example 3-4: Draw Basic Shapes</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-5_colon_draw_a_rectangle">Example 3-5: Draw a Rectangle</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-6_colon_draw_an_ellipse">Example 3-6: Draw an Ellipse</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-7_colon_draw_part_of_an_ellips">Example 3-7: Draw Part of an Ellipse</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-8_colon_draw_with_degrees">Example 3-8: Draw with Degrees</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch03.xhtml#drawing_order">Drawing Order</a></span><ul>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-9_colon_control_your_drawing_o">Example 3-9: Control Your Drawing Order</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-10_colon_put_it_in_reverse">Example 3-10: Put It in Reverse</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch03.xhtml#shape_properties">Shape Properties</a></span><ul>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-11_colon_draw_smooth_lines">Example 3-11: Draw Smooth Lines</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-12_colon_set_stroke_weight">Example 3-12: Set Stroke Weight</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-13_colon_set_stroke_attributes">Example 3-13: Set Stroke Attributes</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch03.xhtml#color">Color</a></span><ul>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-14_colon_paint_with_grays">Example 3-14: Paint with Grays</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-15_colon_control_fill_and_stro">Example 3-15: Control Fill and Stroke</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-16_colon_draw_with_color">Example 3-16: Draw with Color</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-17_colon_set_transparency">Example 3-17: Set Transparency</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch03.xhtml#custom_shapes">Custom Shapes</a></span><ul>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-18_colon_draw_an_arrow">Example 3-18: Draw an Arrow</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-19_colon_close_the_gap">Example 3-19: Close the Gap</a></span></li>
+<li><span class="sect2"><a href="ch03.xhtml#example_3-20_colon_create_some_creatures">Example 3-20: Create Some Creatures</a></span></li>
+</ul>
+</li>
+<li><span class="sect1"><a href="ch03.xhtml#comments">Comments</a></span></li>
+<li><span class="sect1"><a href="ch03.xhtml#robot_1_colon_draw">Robot 1: Draw</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch04.xhtml">4. Variables</a></span><ul>
+<li><span class="sect1"><a href="ch04.xhtml#making_variables">Making Variables</a></span></li>
+<li>
+<span class="sect1"><a href="ch04.xhtml#processing_variables">Processing Variables</a></span><ul><li><span class="sect2"><a href="ch04.xhtml#example_4-3_colon_adjust_the_size_comma">Example 4-3: Adjust the Size, See What Follows</a></span></li></ul>
+</li>
+<li>
+<span class="sect1"><a href="ch04.xhtml#a_little_math">A Little Math</a></span><ul><li><span class="sect2"><a href="ch04.xhtml#example_4-4_colon_basic_arithmetic">Example 4-4: Basic Arithmetic</a></span></li></ul>
+</li>
+<li>
+<span class="sect1"><a href="ch04.xhtml#repetition">Repetition</a></span><ul>
+<li><span class="sect2"><a href="ch04.xhtml#example_4-5_colon_do_the_same_thing_over">Example 4-5: Do the Same Thing Over and Over</a></span></li>
+<li><span class="sect2"><a href="ch04.xhtml#example_4-6_colon_use_a_for_loop">Example 4-6: Use a <span class="emphasis"><em>for</em></span> Loop</a></span></li>
+<li><span class="sect2"><a href="ch04.xhtml#example_4-7_colon_flex_your_for_loop_apo">Example 4-7: Flex Your <span class="emphasis"><em>for</em></span> Loop’s Muscles</a></span></li>
+<li><span class="sect2"><a href="ch04.xhtml#example_4-8_colon_fanning_out_the_lines">Example 4-8: Fanning Out the Lines</a></span></li>
+<li><span class="sect2"><a href="ch04.xhtml#example_4-9_colon_kinking_the_lines">Example 4-9: Kinking the Lines</a></span></li>
+<li><span class="sect2"><a href="ch04.xhtml#example_4-10_colon_embed_one_for_loop_in">Example 4-10: Embed One <span class="emphasis"><em>for</em></span> Loop in Another</a></span></li>
+<li><span class="sect2"><a href="ch04.xhtml#example_4-11_colon_rows_and_columns">Example 4-11: Rows and Columns</a></span></li>
+<li><span class="sect2"><a href="ch04.xhtml#example_4-12_colon_pins_and_lines">Example 4-12: Pins and Lines</a></span></li>
+<li><span class="sect2"><a href="ch04.xhtml#example_4-13_colon_halftone_dots">Example 4-13: Halftone Dots</a></span></li>
+</ul>
+</li>
+<li><span class="sect1"><a href="ch04.xhtml#robot_2_colon_variables">Robot 2: Variables</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch05.xhtml">5. Response</a></span><ul>
+<li>
+<span class="sect1"><a href="ch05.xhtml#follow">Follow</a></span><ul>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-4_colon_track_the_mouse">Example 5-4: Track the Mouse</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-5_colon_the_dot_follows_you">Example 5-5: The Dot Follows You</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-6_colon_draw_continuously">Example 5-6: Draw Continuously</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-7_colon_set_thickness_on_the_f">Example 5-7: Set Thickness on the Fly</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-8_colon_easing_does_it">Example 5-8: Easing Does It</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-9_colon_smooth_lines_with_easi">Example 5-9: Smooth Lines with Easing</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch05.xhtml#map">Map</a></span><ul>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-10_colon_map_values_to_a_range">Example 5-10: Map Values to a Range</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-11_colon_map_with_the_map_open">Example 5-11: Map with the <span class="emphasis"><em>map()</em></span> Function</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch05.xhtml#click">Click</a></span><ul>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-12_colon_click_the_mouse">Example 5-12: Click the Mouse</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-13_colon_detect_when_not_click">Example 5-13: Detect When Not Clicked</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-14_colon_multiple_mouse_button">Example 5-14: Multiple Mouse Buttons</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch05.xhtml#location">Location</a></span><ul>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-15_colon_find_the_cursor">Example 5-15: Find the Cursor</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-16_colon_the_bounds_of_a_circl">Example 5-16: The Bounds of a Circle</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-17_colon_the_bounds_of_a_recta">Example 5-17: The Bounds of a Rectangle</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch05.xhtml#type">Type</a></span><ul>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-18_colon_tap_a_key">Example 5-18: Tap a Key</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-19_colon_draw_some_letters">Example 5-19: Draw Some Letters</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-20_colon_check_for_specific_ke">Example 5-20: Check for Specific Keys</a></span></li>
+<li><span class="sect2"><a href="ch05.xhtml#example_5-21_colon_move_with_arrow_keys">Example 5-21: Move with Arrow Keys</a></span></li>
+</ul>
+</li>
+<li><span class="sect1"><a href="ch05.xhtml#robot_3_colon_response">Robot 3: Response</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch06.xhtml">6. Media</a></span><ul>
+<li>
+<span class="sect1"><a href="ch06.xhtml#images">Images</a></span><ul>
+<li><span class="sect2"><a href="ch06.xhtml#example_6-1_colon_load_an_image">Example 6-1: Load an Image</a></span></li>
+<li><span class="sect2"><a href="ch06.xhtml#example_6-2_colon_load_more_images">Example 6-2: Load More Images</a></span></li>
+<li><span class="sect2"><a href="ch06.xhtml#example_6-3_colon_mousing_around_with_im">Example 6-3: Mousing Around with Images</a></span></li>
+<li><span class="sect2"><a href="ch06.xhtml#example_6-4_colon_transparency_with_a_gi">Example 6-4: Transparency with a GIF</a></span></li>
+<li><span class="sect2"><a href="ch06.xhtml#example_6-5_colon_transparency_with_a_pn">Example 6-5: Transparency with a PNG</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch06.xhtml#fonts">Fonts</a></span><ul>
+<li><span class="sect2"><a href="ch06.xhtml#example_6-6_colon_drawing_with_fonts">Example 6-6: Drawing with Fonts</a></span></li>
+<li><span class="sect2"><a href="ch06.xhtml#example_6-7_colon_draw_text_in_a_box">Example 6-7: Draw Text in a Box</a></span></li>
+<li><span class="sect2"><a href="ch06.xhtml#example_6-8_colon_store_text_in_a_string">Example 6-8: Store Text in a <span class="emphasis"><em>String</em></span></a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch06.xhtml#shapes">Shapes</a></span><ul>
+<li><span class="sect2"><a href="ch06.xhtml#example_6-9_colon_draw_with_shapes">Example 6-9: Draw with Shapes</a></span></li>
+<li><span class="sect2"><a href="ch06.xhtml#example_6-10_colon_scaling_shapes">Example 6-10: Scaling Shapes</a></span></li>
+</ul>
+</li>
+<li><span class="sect1"><a href="ch06.xhtml#robot_4_colon_media">Robot 4: Media</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch07.xhtml">7. Motion</a></span><ul>
+<li>
+<span class="sect1"><a href="ch07.xhtml#speed_and_direction">Speed and Direction</a></span><ul>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-3_colon_move_a_shape">Example 7-3: Move a Shape</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-4_colon_wrap_around">Example 7-4: Wrap Around</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-5_colon_bounce_off_the_wall">Example 7-5: Bounce Off the Wall</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch07.xhtml#tweening">Tweening</a></span><ul><li><span class="sect2"><a href="ch07.xhtml#example_7-6_colon_calculate_tween_positi">Example 7-6: Calculate Tween Positions</a></span></li></ul>
+</li>
+<li>
+<span class="sect1"><a href="ch07.xhtml#random">Random</a></span><ul>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-7_colon_generate_random_values">Example 7-7: Generate Random Values</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-8_colon_draw_randomly">Example 7-8: Draw Randomly</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-9_colon_move_shapes_randomly">Example 7-9: Move Shapes Randomly</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch07.xhtml#timers">Timers</a></span><ul>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-10_colon_time_passes">Example 7-10: Time Passes</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-11_colon_triggering_timed_even">Example 7-11: Triggering Timed Events</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch07.xhtml#circular">Circular</a></span><ul>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-12_colon_sine_wave_values">Example 7-12: Sine Wave Values</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-13_colon_sine_wave_movement">Example 7-13: Sine Wave Movement</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-14_colon_circular_motion">Example 7-14: Circular Motion</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-15_colon_spirals">Example 7-15: Spirals</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch07.xhtml#translate_comma_rotate_comma_scale">Translate, Rotate, Scale</a></span><ul>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-16_colon_translating_location">Example 7-16: Translating Location</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-17_colon_multiple_translations">Example 7-17: Multiple Translations</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-18_colon_isolating_transformat">Example 7-18: Isolating Transformations</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-19_colon_rotation">Example 7-19: Rotation</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-20_colon_combining_transformat">Example 7-20: Combining Transformations</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-21_colon_scaling">Example 7-21: Scaling</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-22_colon_keeping_strokes_consi">Example 7-22: Keeping Strokes Consistent</a></span></li>
+<li><span class="sect2"><a href="ch07.xhtml#example_7-23_colon_an_articulating_arm">Example 7-23: An Articulating Arm</a></span></li>
+</ul>
+</li>
+<li><span class="sect1"><a href="ch07.xhtml#robot_5_colon_motion">Robot 5: Motion</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch08.xhtml">8. Functions</a></span><ul>
+<li>
+<span class="sect1"><a href="ch08.xhtml#function_basics">Function Basics</a></span><ul>
+<li><span class="sect2"><a href="ch08.xhtml#example_8-1_colon_roll_the_dice">Example 8-1: Roll the Dice</a></span></li>
+<li><span class="sect2"><a href="ch08.xhtml#example_8-2_colon_another_way_to_roll">Example 8-2: Another Way to Roll</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch08.xhtml#make_a_function">Make a Function</a></span><ul>
+<li><span class="sect2"><a href="ch08.xhtml#example_8-3_colon_draw_the_owl">Example 8-3: Draw the Owl</a></span></li>
+<li><span class="sect2"><a href="ch08.xhtml#example_8-4_colon_two_apostrophy_s_compa">Example 8-4: Two’s Company</a></span></li>
+<li><span class="sect2"><a href="ch08.xhtml#example_8-5_colon_an_owl_function">Example 8-5: An Owl Function</a></span></li>
+<li><span class="sect2"><a href="ch08.xhtml#example_8-6_colon_increasing_the_surplus">Example 8-6: Increasing the Surplus Population</a></span></li>
+<li><span class="sect2"><a href="ch08.xhtml#example_8-7_colon_owls_of_different_size">Example 8-7: Owls of Different Sizes</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch08.xhtml#return_values">Return Values</a></span><ul><li><span class="sect2"><a href="ch08.xhtml#example_8-8_colon_return_a_value">Example 8-8: Return a Value</a></span></li></ul>
+</li>
+<li><span class="sect1"><a href="ch08.xhtml#robot_6_colon_functions">Robot 6: Functions</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch09.xhtml">9. Objects</a></span><ul>
+<li>
+<span class="sect1"><a href="ch09.xhtml#classes_and_objects">Classes and Objects</a></span><ul>
+<li><span class="sect2"><a href="ch09.xhtml#define_a_class">Define a Class</a></span></li>
+<li><span class="sect2"><a href="ch09.xhtml#example_9-1_colon_make_an_object">Example 9-1: Make an Object</a></span></li>
+<li><span class="sect2"><a href="ch09.xhtml#example_9-2_colon_making_multiple_object">Example 9-2: Making Multiple Objects</a></span></li>
+</ul>
+</li>
+<li><span class="sect1"><a href="ch09.xhtml#robot_7_colon_objects">Robot 7: Objects</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch10.xhtml">10. Arrays</a></span><ul>
+<li>
+<span class="sect1"><a href="ch10.xhtml#make_an_array">Make an Array</a></span><ul>
+<li><span class="sect2"><a href="ch10.xhtml#example_10-4_colon_declare_and_assign_an">Example 10-4: Declare and Assign an Array</a></span></li>
+<li><span class="sect2"><a href="ch10.xhtml#example_10-5_colon_compact_array_assignm">Example 10-5: Compact Array Assignment</a></span></li>
+<li><span class="sect2"><a href="ch10.xhtml#example_10-6_colon_assigning_to_an_array">Example 10-6: Assigning to an Array in One Go</a></span></li>
+<li><span class="sect2"><a href="ch10.xhtml#example_10-7_colon_revisiting_the_first">Example 10-7: Revisiting the First Example</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch10.xhtml#repetition_and_arrays">Repetition and Arrays</a></span><ul>
+<li><span class="sect2"><a href="ch10.xhtml#example_10-8_colon_filling_an_array_in_a">Example 10-8: Filling an Array in a <span class="emphasis"><em>for</em></span> Loop</a></span></li>
+<li><span class="sect2"><a href="ch10.xhtml#example_10-9_colon_track_mouse_movements">Example 10-9: Track Mouse Movements</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch10.xhtml#arrays_of_objects">Arrays of Objects</a></span><ul>
+<li><span class="sect2"><a href="ch10.xhtml#example_10-10_colon_managing_many_object">Example 10-10: Managing Many Objects</a></span></li>
+<li><span class="sect2"><a href="ch10.xhtml#example_10-11_colon_sequences_of_images">Example 10-11: Sequences of Images</a></span></li>
+</ul>
+</li>
+<li><span class="sect1"><a href="ch10.xhtml#robot_8_colon_arrays">Robot 8: Arrays</a></span></li>
+</ul>
+</li>
+<li>
+<span class="chapter"><a href="ch11.xhtml">11. Extend</a></span><ul>
+<li>
+<span class="sect1"><a href="ch11.xhtml#d">3D</a></span><ul>
+<li><span class="sect2"><a href="ch11.xhtml#example_11-1_colon_a_3d_demo">Example 11-1: A 3D Demo</a></span></li>
+<li><span class="sect2"><a href="ch11.xhtml#example_11-2_colon_lighting">Example 11-2: Lighting</a></span></li>
+<li><span class="sect2"><a href="ch11.xhtml#example_11-3_colon_the_processing_camera">Example 11-3: The Processing Camera</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch11.xhtml#image_export">Image Export</a></span><ul>
+<li><span class="sect2"><a href="ch11.xhtml#example_11-4_colon_saving_images">Example 11-4: Saving Images</a></span></li>
+<li><span class="sect2"><a href="ch11.xhtml#example_11-5_colon_draw_to_a_pdf">Example 11-5: Draw to a PDF</a></span></li>
+</ul>
+</li>
+<li>
+<span class="sect1"><a href="ch11.xhtml#hello_arduino">Hello Arduino</a></span><ul>
+<li><span class="sect2"><a href="ch11.xhtml#example_11-6_colon_read_a_sensor">Example 11-6: Read a Sensor</a></span></li>
+<li><span class="sect2"><a href="ch11.xhtml#example_11-7_colon_read_data_from_the_se">Example 11-7: Read Data from the Serial Port</a></span></li>
+<li><span class="sect2"><a href="ch11.xhtml#example_11-8_colon_visualizing_the_data">Example 11-8: Visualizing the Data Stream</a></span></li>
+<li><span class="sect2"><a href="ch11.xhtml#example_11-9_colon_another_way_to_look_a">Example 11-9: Another Way to Look at the Data</a></span></li>
+</ul>
+</li>
+<li><span class="sect1"><a href="ch11.xhtml#community">Community</a></span></li>
+</ul>
+</li>
+<li>
+<span class="appendix"><a href="apa.xhtml">A. Coding Tips</a></span><ul>
+<li><span class="sect1"><a href="apa.xhtml#functions_and_parameters">Functions and Parameters</a></span></li>
+<li><span class="sect1"><a href="apa.xhtml#color_coding">Color Coding</a></span></li>
+<li><span class="sect1"><a href="apa.xhtml#comments-id1">Comments</a></span></li>
+<li><span class="sect1"><a href="apa.xhtml#uppercase_and_lowercase">Uppercase and Lowercase</a></span></li>
+<li><span class="sect1"><a href="apa.xhtml#style">Style</a></span></li>
+<li><span class="sect1"><a href="apa.xhtml#console">Console</a></span></li>
+<li><span class="sect1"><a href="apa.xhtml#one_step_at_a_time">One Step at a Time</a></span></li>
+</ul>
+</li>
+<li><span class="appendix"><a href="apb.xhtml">B. Data Types</a></span></li>
+<li><span class="appendix"><a href="apc.xhtml">C. Order of Operations</a></span></li>
+<li><span class="appendix"><a href="apd.xhtml">D. Variable Scope</a></span></li>
+<li><span class="chapter"><a href="ch12.xhtml">12. Just a test</a></span></li>
+</ul>
+</div>
+</div>
+<footer><div class="navfooter">
+<hr>
+<table style="width: 100%; ">
+<tr>
+<td style="width: 40%; text-align: left; "> </td>
+<td style="width: 20%; text-align: center; "> </td>
+<td style="width: 40%; text-align: right; "> <a accesskey="n" href="pr01.xhtml">Next</a>
+</td>
+</tr>
+<tr>
+<td style="width: 40%; text-align: left; vertical-align: top; "> </td>
+<td style="width: 20%; text-align: center; "> </td>
+<td style="width: 40%; text-align: right; vertical-align: top; "> Advance Praise for Getting Started with</td>
+</tr>
+</table>
+</div></footer>
+	<form accept-charset="UTF-8" action="/books/1230000000625/comments" class="new_comment" id="new_comment" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="PVRzOPBua4pn10zENkq2QNHVFl4q9yoQBuOksF+oge8=" /></div>
+	<textarea cols="40" id="comment_body" name="comment[body]" rows="20">
+</textarea>
+	<input id="comment_file" name="comment[file]" type="hidden" /><!-- find_chapter() should go in the value. should be in params -->
+	<input name="commit" type="submit" value="Submit" />
+</form>
+</body>
+</html>
+
+
+

@@ -94,7 +94,7 @@ header table a[accesskey="n"] {
 /* Main Sections
 ------------------------------------------------ */
 
-section, .titlepage, .toc {
+section, .book .titlepage, .book .toc {
 	position: relative;
 	margin: 0 auto;
 	width: 600px;
@@ -107,37 +107,74 @@ section, .titlepage, .toc {
 /* Title Page
 ------------------------------------------------ */
 
-.titlepage .copyright {
+.book .titlepage h1 {
+	margin-bottom: 30px;
+}
+
+.book .titlepage .author h3, .titlepage .othercredit h3 {
+	margin-top: 0px;
+}
+
+.book .titlepage .othercredit h3 {
+	font-size: 13px;
+	font-family: Verdana, Helvetica, sans-serif;
+}
+
+.book .titlepage .copyright {
 	cursor: pointer;
 }
 
-.titlepage .legalnotice, .titlepage .revhistory {
+.book .titlepage .legalnotice, .titlepage .revhistory {
 	display: none;
 }
 
-.titlepage .legalnotice p {
+.book .titlepage .legalnotice p {
 	font-size: 11px;
 	margin-bottom: 15px;
 }
 
-.titlepage hr {
+.book .titlepage hr {
 	display: none;
 }
 
-.titlepage .revhistory {
+.book .titlepage .revhistory {
 	font-size: 10px;
 	color: #999;
 	line-height: 16px;
 }
 
-.toc {
+.book .toc {
 	padding-top: 0px;
 }
 
-.toc-title {
+.book .toc-title {
 	font-family: "heading", Georgia, sans-serif;
 	font-size: 18px;
 	margin-bottom: 20px;
+}
+
+/* Blockquotes
+------------------------------------------------ */
+
+.preface div.blockquote {
+	margin-top: 40px;
+}
+
+.blockquote tr td:first-child {
+	display: none;
+}
+
+.blockquote p {
+	font-style: italic;
+	margin-bottom: 10px;
+}
+
+.blockquote .attribution {
+	display: block;
+	text-align: left;
+	font-family: "heading", Georgia, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 /* Images
