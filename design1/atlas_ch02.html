@@ -1,0 +1,310 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Chapter 2. Write How You Want</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="css/ch01.css" type="text/css" media="screen" charset="utf-8" />
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/processing.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/processingjslive.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<form id="search-form" action="/books/1230000000065/search" method="POST">
+	<input name='search[q]' type=text/>
+	<div style='display:none'>
+		sorted by: 
+		<select name='search[sort]' >
+			<option value='relevance'>Relevance</option>
+			<option value='authors'>Author(s)</option>
+			<option value='title'>Title</option>
+		</select>
+		returning
+		<select name='search[limit]' >
+			<option value='5'>5</option>
+			<option value='10'>10</option>
+			<option value='20'>20</option>
+		</select>
+		values at a time.
+	</div>
+	<input value='Search' type=submit text='Start Searching' />
+</form>
+	<header><div class="navheader">
+<table style="width: 100%; ">
+<tr><td style="text-align: center; " colspan="3">Chapter 2. Write How You Want, When You Want It</td></tr>
+<tr>
+<td style="width: 20%; text-align: left; ">
+<a accesskey="p" href="ch01.xhtml">Prev</a> </td>
+<td style="width: 60%; text-align: center; "> </td>
+<td style="width: 20%; text-align: right; "> <a accesskey="n" href="ch03.xhtml">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div></header><section class="chapter" id="write_how_you_want"><div class="titlepage"><div><div><h1 class="title">Chapter 2. Write How You Want</h1></div></div></div>
+<p id="when_you_are_us">When you are using Altas to write your book, you have the option of writing in
+the wiki interface or locally on your own computer. This chapter covers each
+of those scenarios. As you write your book, you can jump back and
+forth between the two writing environments. As long as you are saving in the
+web interface or using git to <code class="literal">push</code> and <code class="literal">pull</code> from your local machine,
+you’ll always be in sync.</p>
+<div class="tip">
+<h3 class="title">Get Your Gravatar</h3>
+<p id="you_may_notice_">You may notice that some users have personal icons in the Changes and Collaborators sections of Atlas. Those image icons are pulled in from <a class="ulink" href="http://en.gravatar.com/" target="_top">Gravatar</a>, based on the user’s email address. Set up your Gravatar to get a more personalized icon.</p>
+</div>
+<div class="sect1" id="workingintheatlaswiki">
+<div class="titlepage"><div><div><h2 class="title">Working in the Atlas Wiki</h2></div></div></div>
+<p id="if_youve_used_">If you’ve used a wiki before, you will find the Atlas interface to be very
+familiar. In the following sections, you’ll learn how to create and edit new
+files in the wiki interface.</p>
+<div class="sidebar" id="invite_some_collaborators">
+<div class="titlepage"><div><div><div class="sidebar-title">Invite Some Collaborators</div></div></div></div>
+<p id="once_you_are_wo">Once you are working on a project in Atlas, you can invite additional
+collaborators at any time. First, create your project. Then, click on the
+Collaborators tab. Enter the mail address of anyone you’d like to collaborate
+with on your project. If you choose a permission type of Collaborator, the
+invited author will have full read and write access to your project, via the
+wiki interface and the git repository.</p>
+<p id="you_can_also_re">You can also remove collaborators using the same Collaborators tab.</p>
+</div>
+<div class="sect2" id="creatingnewfiles">
+<div class="titlepage"><div><div><h3 class="title">Creating New Files</h3></div></div></div>
+<p id="when_you_create_id1">When you create your book in Atlas, it will have no files, as shown in <a class="xref" href="ch02.xhtml#blank_slate" title="Figure 2-1. When you create a new book in Atlas, you start off with a blank slate">Figure 2-1</a>.</p>
+<div class="figure" id="blank_slate">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000065/images/blank_slate.png" alt="A screenshot of the Atlas dashboard for a new project"></div></div>
+<div class="figure-title">Figure 2-1. When you create a new book in Atlas, you start off with a blank slate</div>
+</div>
+<p id="you_can_create__id1">You can create your first file by clicking on Open Editor. Atlas will
+recognize that your book has no files, and you will be prompted to create one.
+Click Create your first file and name the file, as shown in <a class="xref" href="ch02.xhtml#create_file" title="Figure 2-2. Create your first file">Figure 2-2</a>.</p>
+<div class="figure" id="create_file">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000065/images/create_file.png" alt="Create your first file"></div></div>
+<div class="figure-title">Figure 2-2. Create your first file</div>
+</div>
+<p id="once_youve_cre">Once you’ve created the file, you’re ready to start writing!</p>
+</div>
+<div class="sect2" id="working_with_asciidoc_text">
+<div class="titlepage"><div><div><h3 class="title">Working with AsciiDoc Text in Atlas</h3></div></div></div>
+<p id="when_youre_wor">When you’re working in the Atlas wiki interface, you will need to write in
+AsciiDoc.<a href="#ftn.id432993" class="footnote"><sup class="footnote" id="id432993">[1]</sup></a> See
+<a class="xref" href="ch04.xhtml" title="Chapter 4. AsciiDoc 101">Chapter 4</a> for an introduction to AsciiDoc markup.</p>
+<p id="the_atlas_wiki_">The Atlas wiki editor works just as you’d expect. Use the buttons to insert
+simple AsciiDoc markup. For example, <a class="xref" href="ch02.xhtml#atlas_editor" title="Figure 2-3. Use the Atlas wiki interface to write in your web browser">Figure 2-3</a> shows what happens when
+you click the H1 button.</p>
+<div class="figure" id="atlas_editor">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000065/images/atlas_editor.png" alt="Use the Atlas wiki interface to write in your web browser"></div></div>
+<div class="figure-title">Figure 2-3. Use the Atlas wiki interface to write in your web browser</div>
+</div>
+<p id="once_youve_ent">Once you’ve entered some text, click Save and your changes will be committed
+to a git repository that is created automatically each time you start a new
+book. Optionally, you can enter a log message before you click Save, and it
+will be included with the commit to the git repository, as show in
+<a class="xref" href="ch02.xhtml#log_message" title="Figure 2-4. It’s good practice to add a meaningful log message">Figure 2-4</a>. Read more about making the most of your git repository in
+<a class="xref" href="ch02.xhtml#working_locally" title="Working Locally">“Working Locally”</a> and <a class="xref" href="ch06.xhtml" title="Chapter 6. Using Git with Atlas">Chapter 6</a>.</p>
+<div class="figure" id="log_message">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000065/images/log_message.png" alt="It’s good practice to add a meaningful log message"></div></div>
+<div class="figure-title">Figure 2-4. It’s good practice to add a meaningful log message</div>
+</div>
+<p id="note_also_that_">Note also that you can use the File Manager drop-down to jump to other files
+or to create new ones.</p>
+</div>
+<div class="sect2" id="adding_images">
+<div class="titlepage"><div><div><h3 class="title">Adding Images via the Atlas Interface</h3></div></div></div>
+<p id="you_can_upload_">You can upload images to your book directly in the Atlas wiki interface. Click
+on Image manager and then select Choose File and finally Upload, as
+shown in <a class="xref" href="ch02.xhtml#image_upload" title="Figure 2-5. Upload your images within Atlas">Figure 2-5</a>.</p>
+<div class="figure" id="image_upload">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000065/images/image_upload.png" alt="Upload your images within Atlas"></div></div>
+<div class="figure-title">Figure 2-5. Upload your images within Atlas</div>
+</div>
+<p id="once_youve_upl">Once you’ve uploaded your image, Atlas will generate a thumbnail preview of
+that image, which you can see at any time by bringing up the Image manager.</p>
+<div class="note"><p id="at_this_time_i">At this time, if you upload an image via git, the image will not have a thumbnail preview within the Image manager.</p></div>
+<p id="you_can_also_us_id1">You can also use the Image manager to insert the AsciiDoc reference to that
+image:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem">
+Place the cursor where you’d like to insert the image within the text.
+</li>
+<li class="listitem">
+Click on Image manager.
+</li>
+<li class="listitem">
+Select the thumbnail preview of the image you’ve uploaded and click Insert
+(<a class="xref" href="ch02.xhtml#insert_image_asciidoc" title="Figure 2-6. You’ve uploaded the image; now reference it within your document">Figure 2-6</a>).
+</li>
+</ol></div>
+<div class="figure" id="insert_image_asciidoc">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000065/images/insert_image_asciidoc.png" alt="You’ve uploaded the image; now reference it within your document"></div></div>
+<div class="figure-title">Figure 2-6. You’ve uploaded the image; now reference it within your document</div>
+</div>
+<p id="once_you_click_">Once you click insert, Atlas will add AsciiDoc markup that looks something like the following to your document:</p>
+<pre class="screen" id="imageimagesi">image::images/insert_image_asciidoc.png[]</pre>
+<p id="read_more_about">Read more about figure and image markup in <a class="xref" href="ch04.xhtml#figures_and_other_images" title="Figures and Other Images">“Figures and Other Images”</a> in
+<a class="xref" href="ch04.xhtml" title="Chapter 4. AsciiDoc 101">Chapter 4</a>.</p>
+</div>
+</div>
+<div class="sect1" id="tracking_changes_in_atlas">
+<div class="titlepage"><div><div><h2 class="title">Tracking Changes in Atlas</h2></div></div></div>
+<p id="each_time_you_s">Each time you save a change in the wiki interface or use git to push a change
+to your repository (as described in <a class="xref" href="ch02.xhtml#committing_and_pushing" title="Committing and Pushing">“Committing and Pushing”</a>), Atlas
+displays that change on the Changes tab.</p>
+<div class="figure" id="changes_in_atlas">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000065/images/changes_in_atlas.png" alt="An Atlas change box shows additions and deletions made to the text"></div></div>
+<div class="figure-title">Figure 2-7. An Atlas change box shows additions and deletions made to the text</div>
+</div>
+<p id="shows_a_change_"><a class="xref" href="ch02.xhtml#changes_in_atlas" title="Figure 2-7. An Atlas change box shows additions and deletions made to the text">Figure 2-7</a> shows a change that was saved to the repository via a
+<code class="literal">git push</code>. In this change notification box, Atlas displays the author who
+made the change along with the log message used during <code class="literal">git commit</code>. If the
+author were to use the Save button on the wiki interface (instead of git), as
+explained in <a class="xref" href="ch02.xhtml#working_with_asciidoc_text" title="Working with AsciiDoc Text in Atlas">“Working with AsciiDoc Text in Atlas”</a>, the change would be captured and
+displayed in the same way.</p>
+</div>
+<div class="sect1" id="working_locally">
+<div class="titlepage"><div><div><h2 class="title">Working Locally</h2></div></div></div>
+<p id="atlas_sits_on_t">Atlas sits on top of a git repository, giving you the flexibility to write how
+and when you want. For example, suppose you have a long flight and want to
+write edit on the plane. No problem—just pull down your book files, make your
+changes locally, and then push them back up when your connected to the
+internet again. Or perhaps you’d rather skip the wiki interface entirely and
+work on your local machine exclusively. That’s fine too.</p>
+<div class="sect2" id="cloning_your_book">
+<div class="titlepage"><div><div><h3 class="title">Cloning Your Book</h3></div></div></div>
+<p id="in_order_to_wor">In order to work locally, you will need to have <a class="ulink" href="http://git-scm.com/" target="_top">git</a>
+installed on your machine.</p>
+<p id="once_you_have_g">Once you have git installed, click on the Metadata tab in the Atlas interface
+to retrieve your git repository URL, as shown in <a class="xref" href="ch02.xhtml#git_repo_url" title="Figure 2-8. Grab your git repository URL from the Metadata tab">Figure 2-8</a>.</p>
+<div class="figure" id="git_repo_url">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000065/images/git_repo_url.png" alt="Grab your git repository URL from the Metadata tab"></div></div>
+<div class="figure-title">Figure 2-8. Grab your git repository URL from the Metadata tab</div>
+</div>
+<p id="now_that_you_ha">Now that you have the URL, you can use git to clone it to your computer. When
+you clone the repo, you can optionally add the name of the directory, like so:</p>
+<pre class="brush: console" id="git_clone_htt">$ git clone https://adam%40oreilly.com@atlas-admin.oreilly.com/git/1230000000065.git
+   getting_started_with_atlas/
+
+Cloning into getting_started_with_atlas...
+remote: Counting objects: 338, done.
+remote: Compressing objects: 100% (337/337), done.
+remote: Total 338 (delta 136), reused 0 (delta 0)
+Receiving objects: 100% (338/338), 4.10 MiB | 534 KiB/s, done.
+Resolving deltas: 100% (136/136), done.</pre>
+<p id="the_clone_comma">The <code class="literal">clone</code> command will download all of the files into a directory named
+<span class="emphasis"><em>getting_started_with_atlas</em></span>, and that directory is now under version control
+with git.</p>
+<div class="note"><p id="all_of_the_exam">All of the examples in this guide use the command line git client. If the
+command line is not for you, there are several GUI git clients available for
+Windows, OS X, and Linux.</p></div>
+</div>
+<div class="sect2" id="committing_and_pushing">
+<div class="titlepage"><div><div><h3 class="title">Committing and Pushing</h3></div></div></div>
+<p id="now_that_youve">Now that you’ve got a local checkout of your project, you can open and edit
+the_.asciidoc_ file. As explained in <a class="xref" href="ch04.xhtml" title="Chapter 4. AsciiDoc 101">Chapter 4</a>, AsciiDoc is a
+text-based markup language. You can use any text editor to edit the files.
+<a class="xref" href="ch02.xhtml#editing_in_textmate" title="Figure 2-9. Editing an AsciiDoc file in TextMate">Figure 2-9</a> shows edits being made to this chapter in TextMate, a
+text editor for the Mac.</p>
+<div class="figure" id="editing_in_textmate">
+<div class="figure-contents"><div class="mediaobject"><img src="http://orm-atlas-prod.s3.amazonaws.com/1230000000065/images/editing_in_textmate.png" alt="Editing an AsciiDoc file in TextMate"></div></div>
+<div class="figure-title">Figure 2-9. Editing an AsciiDoc file in TextMate</div>
+</div>
+<p id="now_its_time_t">Now it’s time to commit the changes to the git repo. You can include a log
+message with <code class="literal">-m</code>. The <code class="literal">-a</code> means to include all changes.</p>
+<pre class="brush: console" id="git_commit_a_id1">$ git commit -a -m'added section on interfacing with the Atlas git backend'
+[master 0e487ee] added section on interfacing with the Atlas git backend
+ 3 files changed, 46 insertions(+), 6 deletions(-)
+ create mode 100644 images/editing_in_textmate.png</pre>
+<p id="finally_push_y">Finally, <code class="literal">push</code> your committed changes:</p>
+<pre class="brush: console" id="git_push_orig_id1">$ git push origin
+Counting objects: 11, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 54.03 KiB, done.
+Total 7 (delta 4), reused 0 (delta 0)
+To https://adam%40oreilly.com@atlas-admin.oreilly.com/git/1230000000065.git
+   ffb554d..90fd00f  master -&gt; master</pre>
+<p id="now_if_you_look">Now if you look in the Altas web interface, you will see the changes that you
+made locally reflected in the wiki interface.</p>
+</div>
+<div class="sect2" id="fetching_and_pulling">
+<div class="titlepage"><div><div><h3 class="title">Fetching and Pulling</h3></div></div></div>
+<p id="you_can_also_us_id2">You can also use git to pull down changes that were made in the wiki
+environment or by other contributors. There are two ways of downloading
+changes. One way is to use <code class="literal">fetch</code> followed by <code class="literal">merge</code>, as in this example:</p>
+<pre class="brush: console" id="git_fetch_rem">$ git fetch
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From https://atlas-admin.oreilly.com/git/1230000000065
+   cd86112..cba41ff  master     -&gt; origin/master</pre>
+<p id="fetch_downloads"><code class="literal">fetch</code> downloads the changes. Now use <code class="literal">merge</code> to bring your local files up to
+date:</p>
+<pre class="brush: console" id="git_merge_ori_id1">$ git merge origin
+Updating cd86112..cba41ff
+Fast-forward
+ ch02.asciidoc |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)</pre>
+<p id="alternatively_">Alternatively, you can use <code class="literal">pull</code>, which downloads the changes and merges them
+in with a single command:</p>
+<pre class="brush: console" id="git_pull_remo">$ git pull
+remote: Counting objects: 8, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 6 (delta 4), reused 0 (delta 0)
+Unpacking objects: 100% (6/6), done.
+From https://atlas-admin.oreilly.com/git/1230000000065
+   cba41ff..a972d49  master     -&gt; origin/master
+Updating cba41ff..a972d49
+Fast-forward
+ ch02.asciidoc |   25 +++++++++++++++++++++++++
+ 1 files changed, 25 insertions(+), 0 deletions(-)</pre>
+<p id="using_push_and_">Using <code class="literal">push</code> and <code class="literal">pull</code> to interface with your Atlas repo is the just
+the beginning of what you can do with git. Check out <a class="ulink" href="http://gitref.org/" target="_top">Git
+Reference</a> and <a class="xref" href="ch06.xhtml" title="Chapter 6. Using Git with Atlas">Chapter 6</a> to learn what else is possible.</p>
+</div>
+<div class="sect2" id="resolving_conflicts">
+<div class="titlepage"><div><div><h3 class="title">Resolving Conflicts</h3></div></div></div>
+<p id="when_you_use_gi">When you use <code class="literal">git merge</code> or <code class="literal">git pull</code>, git will attempt to combine all
+changes into one document. Sometimes, however, git will fail to combine the
+text and your AsciiDoc file will have a conflict. This situation may arise if,
+for example, two authors try to <code class="literal">push</code> changes to the same line of text.
+Conflict resolution is beyond the scope of this document, but the
+Git User’s Manual has an
+<a class="ulink" href="http://schacon.github.com/git/user-manual.html#resolving-a-merge" target="_top">excellent
+overview</a> of git conflicts and how to resolve them.</p>
+</div>
+</div>
+<div class="footnotes">
+<br><hr style="width: 100; align: left;">
+<div id="ftn.id432993" class="footnote"><p><a href="#id432993" class="simpara"><sup class="simpara">[1] </sup></a>Atlas supports Markdown for less technically complex text.
+Ask your editor if Markdown is a good fit for your project.</p></div>
+</div></section><footer><div class="navfooter">
+<hr>
+<table style="width: 100%; ">
+<tr>
+<td style="width: 40%; text-align: left; ">
+<a accesskey="p" href="ch01.xhtml">Prev</a> </td>
+<td style="width: 20%; text-align: center; "> </td>
+<td style="width: 40%; text-align: right; "> <a accesskey="n" href="ch03.xhtml">Next</a>
+</td>
+</tr>
+<tr>
+<td style="width: 40%; text-align: left; vertical-align: top; ">Chapter 1. Join the Publishing Revolution </td>
+<td style="width: 20%; text-align: center; "><a accesskey="h" href="index.xhtml">Home</a></td>
+<td style="width: 40%; text-align: right; vertical-align: top; "> Chapter 3. Building and Debugging</td>
+</tr>
+</table>
+</div></footer>
+	<form accept-charset="UTF-8" action="/books/1230000000065/comments" class="new_comment" id="new_comment" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="IH/DFHPs3CJ14JNmpyR5rLvOCy+2WpIpbFzcL3POBdE=" /></div>
+	<textarea cols="40" id="comment_body" name="comment[body]" rows="20">
+</textarea>
+	<input id="comment_file" name="comment[file]" type="hidden" /><!-- find_chapter() should go in the value. should be in params -->
+	<input name="commit" type="submit" value="Submit" />
+</form>
+</body>
+</html>
+
+
+
