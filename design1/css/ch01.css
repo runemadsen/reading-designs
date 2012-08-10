@@ -91,10 +91,10 @@ header table a[accesskey="n"] {
 	display: none;
 }
 
-/* Section
+/* Main Sections
 ------------------------------------------------ */
 
-section {
+section, .titlepage, .toc {
 	position: relative;
 	margin: 0 auto;
 	width: 600px;
@@ -102,6 +102,42 @@ section {
 	background-color: #FFF;
 	border-right: 1px dashed #D8D8D8;
 	border-left: 1px dashed #D8D8D8;
+}
+
+/* Title Page
+------------------------------------------------ */
+
+.titlepage .copyright {
+	cursor: pointer;
+}
+
+.titlepage .legalnotice, .titlepage .revhistory {
+	display: none;
+}
+
+.titlepage .legalnotice p {
+	font-size: 11px;
+	margin-bottom: 15px;
+}
+
+.titlepage hr {
+	display: none;
+}
+
+.titlepage .revhistory {
+	font-size: 10px;
+	color: #999;
+	line-height: 16px;
+}
+
+.toc {
+	padding-top: 0px;
+}
+
+.toc-title {
+	font-family: "heading", Georgia, sans-serif;
+	font-size: 18px;
+	margin-bottom: 20px;
 }
 
 /* Images
@@ -150,6 +186,10 @@ ol {
 
 ul {
 	list-style: decimal;
+}
+
+ol ol, ul ul {
+	margin-top: 10px;
 }
 
 /* Pre

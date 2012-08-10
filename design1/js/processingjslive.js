@@ -1,5 +1,7 @@
 $(function() {
 	
+	
+	// do all the processingjs live stuff
 	_.each($(".processingjslive"), function(liveelement) {
 		
 		var textarea = $(liveelement).find("textarea")[0];
@@ -14,4 +16,11 @@ $(function() {
 		});
 		
 	});
+	
+	// hide the legalnotices
+	$(".titlepage .copyright").click(function() {
+		$(".titlepage .legalnotice").toggle();
+	}); 
+	
+	
 });
